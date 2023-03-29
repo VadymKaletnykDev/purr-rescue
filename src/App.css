@@ -1,38 +1,123 @@
+*{
+  margin: 0;
+}
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  display: flex;
   min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form-container {
+  background-color: rgba(0, 0, 0, 1);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 400px;
+  margin: 0 auto;
+}
+
+.login-title { 
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #cfcfcf;
+}
+
+.login-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+input {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 1.2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  background-color: #fcff5a;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
 }
+
+
+.register-link {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.register-link:hover {
+  color: #fcff5a;
+}
+
+.title-text {
+  display: block;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-size: 3rem;
+  font-family: cursive;
+  font-style: oblique italic;
+  font-weight: 700;
+  color: #fcff5a;
+}
+
+.login-page-container{
+  background-image: url("./Images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+.register-page-container{
+  background-image: url("./Images/background-register.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-form-container {
+  background-color: rgb(0, 0, 0, 1);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  justify-content: flex-start;
+  margin: 0 auto;
+}
+
+
+.register-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: rgb(255, 255, 255);
+}
+
+
