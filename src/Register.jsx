@@ -20,7 +20,7 @@ export const Register = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await firestore.collection('users').add({ name, email, password, dateRegistred });
-        console.log('FIREBASE: User registered successfully!');
+        console.log('FROM Register: User registered successfully into Firestore database!');
         props.onFormSwitch('login');
     };
 
