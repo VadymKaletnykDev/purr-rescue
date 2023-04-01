@@ -147,6 +147,7 @@ button {
   color: #000;
   text-decoration: none;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 .menu__item:hover > .menu__sublist {
@@ -161,7 +162,9 @@ button {
   padding: 0;
   margin: 0;
   background-color: #fff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  list-style: none;
+  z-index: 1;
 }
 
 .menu__subitem {
@@ -181,49 +184,64 @@ button {
 }
 
 .header {
+  padding-top: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
 }
-
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .search-bar {
   display: flex;
   align-items: center;
-  width: 300px;
-  height: 40px;
-  background-color: #fff;
-  border-radius: 20px;
-  padding: 0 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-
 .search-input {
-  flex: 1;
-  height: 100%;
   border: none;
-  outline: none;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 }
-
 .search-button {
-  width: 40px;
-  height: 100%;
-  border: none;
-  outline: none;
+  border: 2px solid #EEBD79;
   background-color: #fff;
+  color: #EEBD79;
+  padding: 10px;
+  border-radius: 20px;
+  margin-left: 10px;
   cursor: pointer;
 }
+
+
 
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100px; /* adjust to fit your logo size */
+  margin-top: 20px;
 }
 
 .logo img {
   max-height: 100%;
   max-width: 100%;
 }
+.shopContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.divSlider{
+  padding-top: 30px;
+  width: 80%;
+  height: 50vh;
+  z-index: 0;
+}
+
 
 
