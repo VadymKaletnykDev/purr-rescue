@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { firestore } from './firebase/firebase';
 import Slider from "./slider";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus, faSearch,faUser } from '@fortawesome/free-solid-svg-icons';
 
 export const Shop = (props) => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -64,6 +64,12 @@ export const Shop = (props) => {
                             </li>
                             <li className="menu__item">
                                 <a href="#">Contact Us</a>
+                            </li>
+                            <li className="menu__item">
+                                <a href="#"><FontAwesomeIcon icon={faCartPlus}/></a>
+                            </li>
+                            <li className="menu__item">
+                                <a href="#"><FontAwesomeIcon icon={faUser} /></a>
                             </li>
                         </ul>
                     </nav>
