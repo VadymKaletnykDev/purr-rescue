@@ -14,7 +14,7 @@ const App = () => {
             orientation="horizontal"
             initialSlide={1}
             style={{
-                background: "rgba(0, 0, 0, 0.33)"
+                background: "rgba(0, 0, 0, 0)",
             }}
             settings={{
                 shouldDisplayButtons: true,

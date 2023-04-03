@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { firestore } from './firebase/firebase';
 import Slider from "./slider";
+import ProductCard from "./productCard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus, faSearch,faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,6 +16,25 @@ export const Shop = (props) => {
         event.preventDefault();
         console.log(`Searching for: ${searchQuery}`);
     };
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const productsRef = firestore.collection('products');
+            productsRef.onSnapshot((querySnapshot) => {
+                const productList = [];
+                querySnapshot.forEach((doc) => {
+                    productList.push({ id: doc.id, ...doc.data() });
+                });
+                setProducts(productList);
+                console.log("SHOP (ProductList):", productList);
+            });
+        };
+    
+        fetchData();
+    }, []);
+    
 
     return (
         <div className="shopContainer">
@@ -77,8 +97,34 @@ export const Shop = (props) => {
             </div>
             <div className="divSlider">
                 <Slider  className="my-slider"/>
-            </div>          
-        </div>
+            </div>
+            <div className="best-seller">
+                <h1>Our Products</h1>
+                    <ul>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Games</a></li>
+                        <li><a href="#">Food</a></li>
+                        <li><a href="#">Litter and Litter Boxes</a></li>
+                        <li><a href="#">Clothes & Accessories</a></li>
+                    </ul>
+            </div>
+            <div className="product-container">
+                {products.map((product) => (
+                    <ProductCard key={product.id} {...product} />
+                ))}
+            </div>
+        <div class="promotion-container">
+  <div class="left-column">
+    <h2>50% OFF on CLOTHING</h2>
+    <p>50% off all cat clothing for a limited time. Dress your furry friend in style and comfort at unbeatable prices. Use code MEOW50 at checkout to redeem your discount.</p>
+    <button>GO TO CLOTHES COLLECTION</button>
+  </div>
+  <div class="right-column">
+    <img src="https://example.com/promotion-image.jpg" alt="Promotion Image"></img>
+  </div>
+</div>
+
+        </div>          
     );
 }
 

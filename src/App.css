@@ -229,7 +229,7 @@ button {
   max-width: 100%;
 }
 .shopContainer {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -239,9 +239,218 @@ button {
 .divSlider{
   padding-top: 30px;
   width: 80%;
-  height: 50vh;
   z-index: 0;
 }
+
+/* ---------------Best seller portion ------------------------- */
+.best-seller {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.best-seller h1 {
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #EEBD79;
+  border: 2px solid #EEBD79;
+  padding: 10px;
+}
+
+.best-seller ul {
+  list-style: none;
+  margin: 0;
+  margin-left: 10%;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.best-seller li {
+  margin-right: 30px;
+}
+
+.best-seller li:last-child {
+  margin-right: 0;
+}
+
+.best-seller li a {
+  display: block;
+  color: #333;
+  font-size: 24px;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 5px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  }
+  
+  .best-seller li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #EEBD79;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+  }
+  
+  .best-seller li a:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  }
+
+/* ----------------- Product card ------------------------ */
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  padding: 50px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.services {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.single-img {
+  border-radius: 5px;
+  margin-right: 40px; /* added margin to create space between the cards */
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  width: 325px;
+  height: 450px;
+  overflow: hidden;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  transform: translate(0, 0);
+  transition: 0.3s;
+}
+
+.single-img:hover {
+  transform: translate(0, -9px);
+}
+
+.img-text {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+  padding: 0 10px 5px 10px;
+  width: 100%;
+  height: auto;
+  position: relative;
+  transform: translate(0, 110px);
+  line-height: 25px;
+  transition: 0.5s ease;
+  display: inline-block;
+  text-align: center;
+  color: #e18400;
+  font-weight: bold;
+}
+
+.img-text h4 {
+  line-height: 15px;
+  padding: 0;
+  margin: 16px 0;
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 25px;
+}
+
+.services button {
+  background: #252525;
+  color: #fff;
+  padding: 10px 35px;
+  border: none;
+  border-radius: 50px;
+  line-height: 14px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.single-img:hover .img-text {
+  transform: translate(0, 0);
+}
+
+/* ------------Deal of the day -------------------- */
+.promotion-container {
+  display: flex;
+  margin-top: 120px;
+  height: fit-content;
+  width: 100%;
+}
+
+.left-column {
+  flex: 1;
+  padding-right: 20px;
+  text-align: left;
+  background-color: #000;
+}
+
+.left-column h2 {
+  color: #EEBD79;
+  margin-left: 200px;
+  margin-top: 5%;
+  font-size: 45px;
+}
+
+.left-column p {
+  color: white;
+  margin-left: 200px;
+  margin-top: 3%;
+  font-size: 28px;
+  margin-bottom: 3%;
+}
+
+.left-column button {
+  color: white;
+  background-color: #EEBD79;
+  margin-left: 200px;
+  margin-top: 3%;
+  font-size: 35px;
+  margin-bottom: 3%;
+}
+
+.right-column {
+  flex: 1;
+  background-image: url("./Images/background.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center 100%; /* Change this line */
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-column img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.wrapper {
+  width: calc(25% - 20px);
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+
 
 
 
