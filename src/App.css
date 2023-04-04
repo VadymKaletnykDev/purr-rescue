@@ -285,6 +285,7 @@ button {
   padding-bottom: 5px;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
+  cursor: pointer;
   }
   
   .best-seller li a::before {
@@ -303,6 +304,10 @@ button {
   .best-seller li a:hover::before {
   transform: scaleX(1);
   transform-origin: bottom left;
+  }
+  .best-seller li a.selected::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 
 /* ----------------- Product card ------------------------ */
@@ -347,7 +352,7 @@ a {
 
 .img-text {
   background: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
-  padding: 0 10px 5px 10px;
+  padding: 0 10px 10px 10px;
   width: 100%;
   height: auto;
   position: relative;
@@ -357,15 +362,16 @@ a {
   display: inline-block;
   text-align: center;
   color: #e18400;
-  font-weight: bold;
 }
 
 .img-text h4 {
-  line-height: 15px;
-  padding: 0;
+  line-height: 20px; /* Adjust this value to your preference */
+  padding: 10px;
   margin: 16px 0;
   font-family: 'Alfa Slab One', cursive;
   font-size: 25px;
+  word-wrap: break-word; /* Add this line to handle long words or strings */
+  overflow-wrap: break-word; /* Add this line to handle long words or strings */
 }
 
 .services button {
@@ -441,7 +447,7 @@ a {
 .product-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: start;
 }
 
 .wrapper {

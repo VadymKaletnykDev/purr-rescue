@@ -19,6 +19,20 @@ export const Shop = (props) => {
 
     const [products, setProducts] = useState([]);
 
+    const [selectedCategory, setSelectedCategory] = useState('All Products');
+
+    const handleCategoryClick = (category) => {
+        if (selectedCategory === 'All Products' || category !== selectedCategory) {
+            setSelectedCategory(category);
+        } else {
+            setSelectedCategory('All Products');
+        }
+    };
+
+    const filteredProducts = products.filter((product) => {
+        return selectedCategory === 'All Products' || product.productCategory === selectedCategory;
+    });
+
     useEffect(() => {
         const fetchData = async () => {
             const productsRef = firestore.collection('products');
@@ -63,10 +77,10 @@ export const Shop = (props) => {
                                 <a href="#">Home</a>
                             </li>
                             <li className="menu__item">
-                                <a href="#">Shop</a>
+                                <a href="#">Collections</a>
                                 <ul className="menu__sublist">
                                     <li className="menu__subitem">
-                                        <a href="#">Games</a>
+                                        <a href="#">Toys</a>
                                     </li>
                                     <li className="menu__subitem">
                                         <a href="#">Food</a>
@@ -101,15 +115,25 @@ export const Shop = (props) => {
             <div className="best-seller">
                 <h1>Our Products</h1>
                     <ul>
-                        <li><a href="#">All Products</a></li>
-                        <li><a href="#">Games</a></li>
-                        <li><a href="#">Food</a></li>
-                        <li><a href="#">Litter and Litter Boxes</a></li>
-                        <li><a href="#">Clothes & Accessories</a></li>
+                        <li>
+                            <a className={selectedCategory === 'All Products' ? 'selected' : ''} onClick={() => handleCategoryClick('All Products')}> All Products </a>
+                        </li>
+                        <li>
+                            <a className={selectedCategory === 'toys' ? 'selected' : ''} onClick={() => handleCategoryClick('toys')}> Toys </a>
+                        </li>
+                        <li>
+                            <a className={selectedCategory === 'food' ? 'selected' : ''} onClick={() => handleCategoryClick('food')}> Food </a>
+                        </li>
+                        <li>
+                            <a className={selectedCategory === 'litter' ? 'selected' : ''} onClick={() => handleCategoryClick('litter')}> Litter and Litter Boxes </a>
+                        </li>
+                        <li>
+                            <a className={selectedCategory === 'clothes' ? 'selected' : ''} onClick={() => handleCategoryClick('clothes')}> Clothes & Accessories </a>
+                        </li>
                     </ul>
             </div>
             <div className="product-container">
-                {products.map((product) => (
+                {filteredProducts.map((product) => (
                     <ProductCard key={product.id} {...product} />
                 ))}
             </div>
