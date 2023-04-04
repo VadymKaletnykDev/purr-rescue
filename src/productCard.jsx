@@ -13,11 +13,11 @@ function ProductCard({ id, productName, productCategory, productDescription, pro
     <div className="wrapper">
       <div className="services">
         <a href="#">
-          <span className="single-img img-four" style={backgroundImageStyle}> {/* Add the inline style here */}
+          <span className="single-img" style={backgroundImageStyle}> {/* Add the inline style here */}
             <span className="img-text">
               <h4>{productName}</h4>
               <p>&nbsp;</p>
-              <p>{productPrice}</p>
+              <p>{productPrice}$</p>
               <p>&nbsp;</p>
               <button>View product</button>
             </span>
