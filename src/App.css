@@ -259,7 +259,7 @@ button {
 .best-seller ul {
   list-style: none;
   margin: 0;
-  margin-left: 10%;
+  margin-left: 2%;
   padding: 0;
   display: flex;
   justify-content: flex-start;
@@ -365,7 +365,7 @@ a {
 }
 
 .img-text h4 {
-  line-height: 20px; /* Adjust this value to your preference */
+  line-height: 30px; /* Adjust this value to your preference */
   padding: 10px;
   margin: 16px 0;
   font-family: 'Alfa Slab One', cursive;
@@ -455,6 +455,7 @@ a {
   margin-bottom: 20px;
   margin-left: 20px;
 }
+
 
 
 
