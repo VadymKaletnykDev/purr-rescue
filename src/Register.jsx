@@ -16,6 +16,7 @@ export const Register = (props) => {
     
         return () => clearInterval(interval);
       }, []);
+      
 
     const handleSubmit = async (e) => {
         e.preventDefault();

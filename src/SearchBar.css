@@ -1,9 +1,12 @@
 .search-bar {
-    display: flex;
-    align-items: left;
-    position: relative;
-    margin-top: 40px;
-  }
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 40px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
   .search-input {
     border: none;
     padding: 10px;
@@ -24,15 +27,19 @@
   }
 
   .dataresult {
-    width: calc(100% - 55px);
+    width: 76%;
+    left:-2%;
     position: relative;
     margin-top: -16px;
+    margin-left: auto;
+    margin-right: auto;
     max-height: 100px;
     overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     -ms-overflow-style: none; /* Internet Explorer and Edge */
-    scrollbar-width: 1px; /* Firefox */
+    scrollbar-width: 1px black; /* Firefox */
     text-align: left;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);

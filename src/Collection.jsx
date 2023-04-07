@@ -7,15 +7,62 @@ import SearchBar from './SearchBar';
 import "./Navigation.css";
 
 import {
-  faCartPlus,
   faSearch,
-  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const Collection = (props) =>{
-    return (
-        <h1>
-            Welcome to {props.formName}
-        </h1>
-    )
+
+    const [products, setProducts] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(props.formName);
+
+    const filteredProducts = products.filter((product) => {
+        return (
+          product.productCategory === selectedCategory
+        );
+      });
+
+    useEffect(() => {
+        const fetchData = async () => {
+          const productsRef = firestore.collection("products");
+          productsRef.onSnapshot((querySnapshot) => {
+            const productList = [];
+            querySnapshot.forEach((doc) => {
+              productList.push({ id: doc.id, ...doc.data() });
+            });
+            setProducts(productList);
+            console.log("SHOP (ProductList):", productList);
+          });
+        };
+    
+        fetchData();
+      }, []);
+
+// Collection.js
+
+return (
+    <h1 className="collection-title">
+      {props.formName === "litter" ? (
+        <>
+          Purr-rescue Litter and Litter Boxes Collection
+          <SearchBar formName = "litter" formTitle = "litter and litter Boxes" />
+          <div className="product-container">
+            {filteredProducts.map((product) => (
+              <ProductCard onFormSwitch={props.onFormSwitch} key={product.id} {...product} />
+            ))}
+          </div>
+
+        </>
+      ) : (
+        <>
+          Purr-rescue {props.formName} Collection
+          <SearchBar formName={props.formName} formTitle = {props.formName} />
+          <div className="product-container">
+            {filteredProducts.map((product) => (
+              <ProductCard onFormSwitch={props.onFormSwitch} key={product.id} {...product} />
+            ))}
+          </div>
+        </>
+      )}
+    </h1>
+  );
 }

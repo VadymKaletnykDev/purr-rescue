@@ -4,7 +4,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./SearchBar.css";
 import { firestore } from "./firebase/firebase";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -29,11 +30,9 @@ const SearchBar = () => {
     if (searchWord === "") {
       setFilteredData([]); // If search word is empty, set filtered data to an empty array
     } else {
-      const firstLetterFilter = products.filter((product) => {
-        return product.productName.charAt(0).toLowerCase() === searchWord.charAt(0); // Filter products by first letter of product name
-      });
-      const stringMatchFilter = firstLetterFilter.filter((product) => {
-        return product.productName.toLowerCase().includes(searchWord); // Filter products by search word
+      const stringMatchFilter = products.filter((product) => {
+        return product.productName.toLowerCase().includes(searchWord)  &&
+        product.productCategory === props.formName; // Filter products by search word
       });
       setFilteredData(stringMatchFilter); // Set filtered data
     }
@@ -53,6 +52,7 @@ const SearchBar = () => {
     setSearchQuery(productName);
     setFilteredData([]); // Clear filtered data to hide the product list
   };
+  
 
   return (
     <>
@@ -60,7 +60,7 @@ const SearchBar = () => {
         <div className="search-bar">
           <input
             type="text"
-            placeholder="Search for products..."
+            placeholder={`Search for products in ${props.formTitle}`}
             className="search-input"
             value={searchQuery}
             onChange={handleInputChange}

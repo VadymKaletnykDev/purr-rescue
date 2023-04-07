@@ -12,6 +12,8 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
+
+
 export const ViewProduct = (props) =>{
     return (
         <h1>
