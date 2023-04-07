@@ -1,0 +1,60 @@
+.search-bar {
+    display: flex;
+    align-items: left;
+    position: relative;
+    margin-top: 40px;
+  }
+  .search-input {
+    border: none;
+    padding: 10px;
+    box-shadow: -1px -2px 1px rgba(0, 0, 0, 0.2), 2px 2px 1px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-weight: bold;
+    font-size: medium;
+  }
+  .search-button {
+    border: 2px solid #EEBD79;
+    background-color: #fff;
+    color: #EEBD79;
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .dataresult {
+    width: calc(100% - 55px);
+    position: relative;
+    margin-top: -16px;
+    max-height: 100px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+    scrollbar-width: 1px; /* Firefox */
+    text-align: left;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 0;
+  }
+
+  .dataresult::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+
+  .product-item {
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+
+  .product-item:hover {
+    background-color: #EEBD79;
+    color: #000000;
+    width: 100%;
+  }
+  
+    
+  

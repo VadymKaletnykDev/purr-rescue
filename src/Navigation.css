@@ -1,0 +1,29 @@
+.link-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: black;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .link-button-sub {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: black;
+    padding: 10px;
+    margin: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  
