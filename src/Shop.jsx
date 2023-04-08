@@ -5,8 +5,8 @@ import { firestore } from "./firebase/firebase";
 import Slider from "./slider";
 import ProductCard from "./productCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SearchBar from './SearchBar';
-import "./Navigation.css";
+import "./App";
+import { useNavigate } from "react-router-dom";
 
 
 import {
@@ -19,7 +19,14 @@ export const Shop = (props) => {
 
   const [products, setProducts] = useState([]);
 
+  const navigate = useNavigate();
+
+
   const [selectedCategory, setSelectedCategory] = useState("All Products");
+
+  useEffect(() => {
+    navigate("/shop", { replace: true });
+  }, []);
 
   const handleCategoryClick = (category) => {
     if (selectedCategory === "All Products" || category !== selectedCategory) {
@@ -38,7 +45,7 @@ export const Shop = (props) => {
 
 
   const handleNavigate = (destination) => {
-    props.onFormSwitch(destination);
+    navigate(destination);
   };
 
   useEffect(() => {
@@ -50,10 +57,8 @@ export const Shop = (props) => {
           productList.push({ id: doc.id, ...doc.data() });
         });
         setProducts(productList);
-        console.log("SHOP (ProductList):", productList);
       });
     };
-
     fetchData();
   }, []);
 
@@ -62,13 +67,12 @@ export const Shop = (props) => {
       <div className="logo">
         <img src={require("./Images/logo.png")} alt="logo" />
       </div>
-      {/* <SearchBar /> */}
       <div className="header">
         <div className="header__top">
           <nav className="menu">
             <ul className="menu__list">
               <li className="menu__item">
-              <button className="link-button" onClick={() => handleNavigate("shop")}>Home</button>
+              <button className="link-button">Home</button>
               </li>
               <li className="menu__item">
     <button className="link-button">
@@ -76,44 +80,44 @@ export const Shop = (props) => {
     </button>
     <ul className="menu__sublist">
       <li className="menu__subitem">
-        <button className="link-button-sub" onClick={() => handleNavigate("toys")}>
+        <button className="link-button-sub" onClick={() => handleNavigate("/toys")}>
           Toys
         </button>
       </li>
       <li className="menu__subitem">
-        <button className="link-button-sub" onClick={() => handleNavigate("food")}>
+        <button className="link-button-sub" onClick={() => handleNavigate("/food")}>
           Food
         </button>
       </li>
       <li className="menu__subitem">
-        <button className="link-button-sub" onClick={() => handleNavigate("litter")}>
+        <button className="link-button-sub" onClick={() => handleNavigate("/litter")}>
           Litter and Litter Boxes
         </button>
       </li>
       <li className="menu__subitem">
-        <button className="link-button-sub" onClick={() => handleNavigate("clothes")}>
+        <button className="link-button-sub" onClick={() => handleNavigate("/clothes")}>
           Clothes
         </button>
       </li>
     </ul>
   </li>
   <li className="menu__item">
-    <button className="link-button" onClick={() => handleNavigate("about")}>
+    <button className="link-button" onClick={() => handleNavigate("/about")}>
       About Us
     </button>
   </li>
   <li className="menu__item">
-    <button className="link-button" onClick={() => handleNavigate("contact")}>
+    <button className="link-button" onClick={() => handleNavigate("/contact")}>
       Contact Us
     </button>
   </li>
   <li className="menu__item">
-    <button className="link-button" onClick={() => handleNavigate("checkout")}>
+    <button className="link-button" onClick={() => handleNavigate("/checkout")}>
       <FontAwesomeIcon icon={faCartPlus} />
     </button>
   </li>
   <li className="menu__item">
-    <button className="link-button" onClick={() => handleNavigate("account")}>
+    <button className="link-button" onClick={() => handleNavigate("/account")}>
       <FontAwesomeIcon icon={faUser} />
     </button>
   </li>

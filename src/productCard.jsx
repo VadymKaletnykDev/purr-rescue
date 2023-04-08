@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ProductCard({
   id,
@@ -18,15 +19,16 @@ function ProductCard({
     backgroundPosition: "center center",
   };
 
-  const handleViewProductClick = () => {
+  const handleViewProductClick = (destination, productId) => {
     // switch to the registration form and change background image
-    onFormSwitch("view"); // Use onFormSwitch directly
+    navigate(destination + "?pId=" + productId + "&pName=" + productName) // Use onFormSwitch directly
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className="wrapper">
       <div className="services">
-        <a href="#">
           <span className="single-img" style={backgroundImageStyle}>
             {/* Add the inline style here */}
             <span className="img-text">
@@ -34,10 +36,9 @@ function ProductCard({
               <p>&nbsp;</p>
               <p>{productPrice}$</p>
               <p>&nbsp;</p>
-              <button onClick={handleViewProductClick}>View product</button>
+              <button onClick={() => handleViewProductClick("/view" , id, productName)}>View product</button>
             </span>
           </span>
-        </a>
       </div>
     </div>
   );

@@ -3,12 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./SearchBar.css";
 import { firestore } from "./firebase/firebase";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = (props) => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +18,7 @@ const SearchBar = (props) => {
       productsRef.onSnapshot((querySnapshot) => {
         const productsArray = [];
         querySnapshot.forEach((doc) => {
-          productsArray.push(doc.data());
+          productsArray.push({ id: doc.id, ...doc.data() });
         });
         setProducts(productsArray);
         console.log("SearchBar:", productsArray);
@@ -48,9 +50,11 @@ const SearchBar = (props) => {
     // Your search logic here
   };
 
-  const handleProductClick = (productName) => {
+  const handleProductClick = (productId, productName, destination) => {
     setSearchQuery(productName);
     setFilteredData([]); // Clear filtered data to hide the product list
+    navigate(destination  + "?pId=" + productId + "&pName=" + productName);
+
   };
   
 
@@ -73,9 +77,9 @@ const SearchBar = (props) => {
           <div className="dataresult">
             {filteredData.map((product, index) => (
               <div 
-              key={index} 
+              key={product.id} 
               className="product-item"
-              onClick={() => handleProductClick(product.productName)}>
+              onClick={() => handleProductClick(product.id, product.productName, "/view")}>
                 {product.productName}
               </div>
             ))}

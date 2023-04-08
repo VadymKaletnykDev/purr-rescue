@@ -37,6 +37,7 @@ export const Collection = (props) =>{
         fetchData();
       }, []);
 
+
 // Collection.js
 
 return (

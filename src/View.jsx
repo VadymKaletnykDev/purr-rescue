@@ -4,7 +4,7 @@ import Slider from "./slider";
 import ProductCard from "./productCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchBar from './SearchBar';
-import "./Navigation.css";
+import "./View.css";
 
 import {
   faCartPlus,
@@ -12,12 +12,11 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
-
-
 export const ViewProduct = (props) =>{
     return (
-        <h1>
-            Welcome to product view
-        </h1>
+        <div className="my-class">
+      <h1>Hello World</h1>
+      <p>This is some text.</p>
+    </div>
     )
 }
