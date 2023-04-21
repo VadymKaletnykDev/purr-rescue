@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
 }
 .App {
@@ -7,6 +7,13 @@
   min-height: 100vh;
   flex-direction: column;
   justify-content: center;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 550px); /* adjust height to center title properly */
 }
 
 .login-form-container {
@@ -21,7 +28,7 @@
   margin: 0 auto;
 }
 
-.login-title { 
+.login-title {
   font-size: 3rem;
   margin-bottom: 30px;
   color: #ffffff;
@@ -56,7 +63,6 @@ button {
   margin-bottom: 20px;
 }
 
-
 .register-link {
   margin-top: 20px;
   font-size: 1.2rem;
@@ -80,7 +86,7 @@ button {
   color: #fcff5a;
 }
 
-.login-page-container{
+.login-page-container {
   background-image: url("./Images/background.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -88,7 +94,7 @@ button {
   height: 100vh;
 }
 
-.register-page-container{
+.register-page-container {
   background-image: url("./Images/background-register.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -112,7 +118,6 @@ button {
   margin: 0 auto;
 }
 
-
 .register-label {
   display: block;
   margin-bottom: 10px;
@@ -132,7 +137,7 @@ button {
 }
 
 .menu__list {
-  display: table;;
+  display: table;
   list-style: none;
   padding: 0;
 }
@@ -181,7 +186,7 @@ button {
 }
 
 .menu__subitem:hover {
-  background-color: #EEBD79;
+  background-color: #eebd79;
 }
 
 .header {
@@ -216,7 +221,7 @@ button {
   align-items: center;
 }
 
-.divSlider{
+.divSlider {
   padding-top: 30px;
   width: 80%;
   z-index: 0;
@@ -231,8 +236,8 @@ button {
 .best-seller h1 {
   font-weight: bold;
   margin-bottom: 50px;
-  color: #EEBD79;
-  border: 2px solid #EEBD79;
+  color: #eebd79;
+  border: 2px solid #eebd79;
   padding: 10px;
 }
 
@@ -263,34 +268,34 @@ button {
   font-weight: bold;
   position: relative;
   padding-bottom: 5px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
   cursor: pointer;
-  }
-  
-  .best-seller li a::before {
+}
+
+.best-seller li a::before {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: #EEBD79;
+  background-color: #eebd79;
   transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
-  }
-  
-  .best-seller li a:hover::before {
+}
+
+.best-seller li a:hover::before {
   transform: scaleX(1);
   transform-origin: bottom left;
-  }
-  .best-seller li a.selected::before {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
+}
+.best-seller li a.selected::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 
 /* ----------------- Product card ------------------------ */
 a {
@@ -333,7 +338,11 @@ a {
 }
 
 .img-text {
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.9)
+  );
   padding: 0 10px 10px 10px;
   width: 100%;
   height: auto;
@@ -350,7 +359,7 @@ a {
   line-height: 30px; /* Adjust this value to your preference */
   padding: 10px;
   margin: 16px 0;
-  font-family: 'Alfa Slab One', cursive;
+  font-family: "Alfa Slab One", cursive;
   font-size: 25px;
   word-wrap: break-word; /* Add this line to handle long words or strings */
   overflow-wrap: break-word; /* Add this line to handle long words or strings */
@@ -387,7 +396,7 @@ a {
 }
 
 .left-column h2 {
-  color: #EEBD79;
+  color: #eebd79;
   margin-left: 200px;
   margin-top: 5%;
   font-size: 45px;
@@ -403,7 +412,7 @@ a {
 
 .left-column button {
   color: white;
-  background-color: #EEBD79;
+  background-color: #eebd79;
   margin-left: 200px;
   margin-top: 3%;
   font-size: 35px;
@@ -437,9 +446,3 @@ a {
   margin-bottom: 20px;
   margin-left: 20px;
 }
-
-
-
-
-
-

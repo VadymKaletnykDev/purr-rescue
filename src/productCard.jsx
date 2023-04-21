@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {} from "react";
 import { useNavigate } from "react-router-dom";
 
 function ProductCard({
@@ -21,7 +21,7 @@ function ProductCard({
 
   const handleViewProductClick = (destination, productId) => {
     // switch to the registration form and change background image
-    navigate(destination + "?pId=" + productId + "&pName=" + productName) // Use onFormSwitch directly
+    navigate(destination + "?pId=" + productId + "&pName=" + productName); // Use onFormSwitch directly
   };
 
   const navigate = useNavigate();
@@ -29,16 +29,20 @@ function ProductCard({
   return (
     <div className="wrapper">
       <div className="services">
-          <span className="single-img" style={backgroundImageStyle}>
-            {/* Add the inline style here */}
-            <span className="img-text">
-              <h4>{productName}</h4>
-              <p>&nbsp;</p>
-              <p>{productPrice}$</p>
-              <p>&nbsp;</p>
-              <button onClick={() => handleViewProductClick("/view" , id, productName)}>View product</button>
-            </span>
+        <span className="single-img" style={backgroundImageStyle}>
+          {/* Add the inline style here */}
+          <span className="img-text">
+            <h4>{productName}</h4>
+            <p>&nbsp;</p>
+            <p>{productPrice}$</p>
+            <p>&nbsp;</p>
+            <button
+              onClick={() => handleViewProductClick("/view", id, productName)}
+            >
+              View product
+            </button>
           </span>
+        </span>
       </div>
     </div>
   );

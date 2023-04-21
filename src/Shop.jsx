@@ -8,25 +8,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./App";
 import { useNavigate } from "react-router-dom";
 
-
 import {
   faCartPlus,
-  faSearch,
-  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const Shop = (props) => {
-
   const [products, setProducts] = useState([]);
 
   const navigate = useNavigate();
-
 
   const [selectedCategory, setSelectedCategory] = useState("All Products");
 
   useEffect(() => {
     navigate("/shop", { replace: true });
-  }, []);
+  }, [navigate]);
 
   const handleCategoryClick = (category) => {
     if (selectedCategory === "All Products" || category !== selectedCategory) {
@@ -42,7 +37,6 @@ export const Shop = (props) => {
       product.productCategory === selectedCategory
     );
   });
-
 
   const handleNavigate = (destination) => {
     navigate(destination);
@@ -72,56 +66,63 @@ export const Shop = (props) => {
           <nav className="menu">
             <ul className="menu__list">
               <li className="menu__item">
-              <button className="link-button">Home</button>
+                <button className="link-button">Home</button>
               </li>
               <li className="menu__item">
-    <button className="link-button">
-      Collections
-    </button>
-    <ul className="menu__sublist">
-      <li className="menu__subitem">
-        <button className="link-button-sub" onClick={() => handleNavigate("/toys")}>
-          Toys
-        </button>
-      </li>
-      <li className="menu__subitem">
-        <button className="link-button-sub" onClick={() => handleNavigate("/food")}>
-          Food
-        </button>
-      </li>
-      <li className="menu__subitem">
-        <button className="link-button-sub" onClick={() => handleNavigate("/litter")}>
-          Litter and Litter Boxes
-        </button>
-      </li>
-      <li className="menu__subitem">
-        <button className="link-button-sub" onClick={() => handleNavigate("/clothes")}>
-          Clothes
-        </button>
-      </li>
-    </ul>
-  </li>
-  <li className="menu__item">
-    <button className="link-button" onClick={() => handleNavigate("/about")}>
-      About Us
-    </button>
-  </li>
-  <li className="menu__item">
-    <button className="link-button" onClick={() => handleNavigate("/contact")}>
-      Contact Us
-    </button>
-  </li>
-  <li className="menu__item">
-    <button className="link-button" onClick={() => handleNavigate("/checkout")}>
-      <FontAwesomeIcon icon={faCartPlus} />
-    </button>
-  </li>
-  <li className="menu__item">
-    <button className="link-button" onClick={() => handleNavigate("/account")}>
-      <FontAwesomeIcon icon={faUser} />
-    </button>
-  </li>
-</ul>
+                <button className="link-button">Collections</button>
+                <ul className="menu__sublist">
+                  <li className="menu__subitem">
+                    <button
+                      className="link-button-sub"
+                      onClick={() => handleNavigate("/toys")}
+                    >
+                      Toys
+                    </button>
+                  </li>
+                  <li className="menu__subitem">
+                    <button
+                      className="link-button-sub"
+                      onClick={() => handleNavigate("/food")}
+                    >
+                      Food
+                    </button>
+                  </li>
+                  <li className="menu__subitem">
+                    <button
+                      className="link-button-sub"
+                      onClick={() => handleNavigate("/litter")}
+                    >
+                      Litter and Litter Boxes
+                    </button>
+                  </li>
+                  <li className="menu__subitem">
+                    <button
+                      className="link-button-sub"
+                      onClick={() => handleNavigate("/clothes")}
+                    >
+                      Clothes
+                    </button>
+                  </li>
+                </ul>
+              </li>
+              <li className="menu__item">
+                <a
+                  className="link-button"
+                  href="https://vadymkaletnykdev.github.io/Responsive-Portfolio/"
+                >
+                  About Me
+                </a>
+              </li>
+
+              <li className="menu__item">
+                <button
+                  className="link-button"
+                  onClick={() => handleNavigate("/checkout")}
+                >
+                  <FontAwesomeIcon icon={faCartPlus} />
+                </button>
+              </li>
+            </ul>
           </nav>
         </div>
       </div>
@@ -129,7 +130,6 @@ export const Shop = (props) => {
         <Slider className="my-slider" />
       </div>
       <div className="best-seller">
-        <h1>OUR PRODUCTS</h1>
         <ul>
           <li>
             <a
@@ -180,7 +180,11 @@ export const Shop = (props) => {
       </div>
       <div className="product-container">
         {filteredProducts.map((product) => (
-          <ProductCard onFormSwitch={props.onFormSwitch} key={product.id} {...product} />
+          <ProductCard
+            onFormSwitch={props.onFormSwitch}
+            key={product.id}
+            {...product}
+          />
         ))}
       </div>
       <div class="promotion-container">
@@ -191,13 +195,12 @@ export const Shop = (props) => {
             in style and comfort at unbeatable prices. Use code MEOW50 at
             checkout to redeem your discount.
           </p>
-          <button>GO TO CLOTHES COLLECTION</button>
+          <button onClick={() => handleNavigate("/clothes")}>
+            GO TO CLOTHES COLLECTION{" "}
+          </button>
         </div>
         <div class="right-column">
-          <img
-            src="https://example.com/promotion-image.jpg"
-            alt="Promotion Image"
-          ></img>
+          <img src="./Image" alt="Promotion Image"></img>
         </div>
       </div>
     </div>

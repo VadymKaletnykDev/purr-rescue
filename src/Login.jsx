@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import { firestore } from "./firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert";
+import { useAuth } from "./AuthProvider";
 
 export const Login = () => {
   // Variable to store email
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [setError] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { signIn } = useAuth();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -22,7 +24,6 @@ export const Login = () => {
       window.history.pushState(null, "", "/shop"); // Remove the login page from the browser history
     }
   }, [isAuthenticated]);
-
 
   const showError = (errorTitle, errorMessage) => {
     Swal({
@@ -37,13 +38,13 @@ export const Login = () => {
     e.preventDefault();
     try {
       await Login(email, password);
+      await signIn(email, password);
       setIsAuthenticated(true); // Set isAuthenticated to true on successful login
       navigate("/shop"); // Redirect to the shop page on successful login
     } catch (error) {
       setError(error.message);
     }
   };
-
 
   const handleRegisterLinkClick = () => {
     // Navigate to the registration form
@@ -136,12 +137,12 @@ export const Login = () => {
 
           <button type="submit" onClick={handleLoginClick}>
             Login
-            </button>
-    </form>
-    <div className="register-link" onClick={handleRegisterLinkClick}>
-      Don't have an account? REGISTER here
+          </button>
+        </form>
+        <div className="register-link" onClick={handleRegisterLinkClick}>
+          Don't have an account? REGISTER here
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-);
+  );
 };

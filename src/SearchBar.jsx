@@ -6,7 +6,6 @@ import { firestore } from "./firebase/firebase";
 import { useNavigate } from "react-router-dom";
 
 const SearchBar = (props) => {
-
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -33,17 +32,15 @@ const SearchBar = (props) => {
       setFilteredData([]); // If search word is empty, set filtered data to an empty array
     } else {
       const stringMatchFilter = products.filter((product) => {
-        return product.productName.toLowerCase().includes(searchWord)  &&
-        product.productCategory === props.formName; // Filter products by search word
+        return (
+          product.productName.toLowerCase().includes(searchWord) &&
+          product.productCategory === props.formName
+        ); // Filter products by search word
       });
       setFilteredData(stringMatchFilter); // Set filtered data
     }
     setSearchQuery(searchWord); // Update search query state
   };
-  
-  
-  
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,10 +50,8 @@ const SearchBar = (props) => {
   const handleProductClick = (productId, productName, destination) => {
     setSearchQuery(productName);
     setFilteredData([]); // Clear filtered data to hide the product list
-    navigate(destination  + "?pId=" + productId + "&pName=" + productName);
-
+    navigate(destination + "?pId=" + productId + "&pName=" + productName);
   };
-  
 
   return (
     <>
@@ -76,10 +71,13 @@ const SearchBar = (props) => {
         {filteredData.length !== 0 && (
           <div className="dataresult">
             {filteredData.map((product, index) => (
-              <div 
-              key={product.id} 
-              className="product-item"
-              onClick={() => handleProductClick(product.id, product.productName, "/view")}>
+              <div
+                key={product.id}
+                className="product-item"
+                onClick={() =>
+                  handleProductClick(product.id, product.productName, "/view")
+                }
+              >
                 {product.productName}
               </div>
             ))}
@@ -91,4 +89,3 @@ const SearchBar = (props) => {
 };
 
 export default SearchBar;
-

@@ -1,0 +1,118 @@
+.logoView {
+  position: absolute;
+  top: 20px;
+  left: 50%; /* Adjusted value */
+  transform: translateX(-50%); /* Center the logo */
+  z-index: 1;
+}
+
+.logoView img {
+  width: 400px; /* adjust the width as needed */
+  height: auto; /* maintain aspect ratio */
+}
+
+.header-checkout {
+  margin-top: 130px;
+  margin-bottom: 10px;
+  position: relative; /* Add this line */
+}
+
+.checkout {
+  width: 100%;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
+}
+
+.product-list {
+  margin-top: 20px;
+  max-height: 200px;
+  overflow: auto;
+  margin-bottom: 10px;
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.product-name,
+.product-price,
+.product-quantity {
+  flex-grow: 1;
+}
+
+.remove-button {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.remove-button:hover {
+  background-color: #d32f2f;
+}
+
+.cart-summary {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.promo-code-container {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.promo-code-container label {
+  margin-right: 1rem;
+}
+
+.promo-code-container input {
+  margin-right: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.promo-code-container button {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.promo-code-container button:hover {
+  background-color: #45a049;
+}
+
+.proceed-to-payment {
+  background-color: #e18400;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+}
+
+.proceed-to-payment:hover {
+  background-color: #8d5200;
+}

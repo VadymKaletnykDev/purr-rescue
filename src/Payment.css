@@ -1,0 +1,72 @@
+.payment-container {
+  width: 50%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.logoView {
+  position: absolute;
+  top: 20px;
+  left: 50%; /* Adjusted value */
+  transform: translateX(-50%); /* Center the logo */
+  z-index: 1;
+  margin-bottom: 100px;
+}
+
+.payment-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.payment-form {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payment-form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.payment-form label {
+  margin-bottom: 5px;
+}
+
+.payment-form input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.payment-button {
+  background-color: #e18400;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-button:hover {
+  background-color: #8d5200;
+}
+
+.paymnet-successfull-h1 {
+  line-height: 30px; /* Adjust this value to your preference */
+  padding: 10px;
+  margin: 16px 0;
+  font-family: "Alfa Slab One", cursive;
+  font-size: 25px;
+  word-wrap: break-word; /* Add this line to handle long words or strings */
+  overflow-wrap: break-word; /* Add this line to handle long words or strings */
+  color: #e18400;
+}

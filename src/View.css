@@ -1,9 +1,81 @@
-body {
-    margin: 0;
-    padding: 0;
-  }
+.logoView {
+  position: absolute;
+  top: 20px;
+  left: 50%; /* Adjusted value */
+  transform: translateX(-50%); /* Center the logo */
+  z-index: 1;
+}
 
-  h1 {
-    position: absolute;
-    top: 0;
-  }
+.logoView img {
+  width: 400px; /* adjust the width as needed */
+  height: auto; /* maintain aspect ratio */
+}
+
+.header-view {
+  margin-top: 150px;
+  margin-bottom: 10px;
+  position: relative; /* Add this line */
+}
+
+.view-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding-top: 1rem; /* Add padding to the top to avoid overlapping with the logo */
+}
+
+.image-container {
+  margin-right: 2rem;
+}
+
+.details-container h1 {
+  margin-bottom: 30px;
+  color: #e18400;
+  font-weight: bold;
+}
+
+.price {
+  font-size: large;
+  font-weight: bold;
+}
+
+.details-container p {
+  margin-top: 10px;
+}
+
+.image-container img {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.details-container {
+  max-width: 400px;
+  text-align: left;
+}
+
+.details-container P {
+  padding-bottom: 20px;
+}
+
+.quantity-add-to-cart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.add-to-cart {
+  background-color: #e18400;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-to-cart:hover {
+  background-color: #8d5200;
+}

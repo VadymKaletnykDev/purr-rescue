@@ -1,15 +1,15 @@
-import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the required CSS
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the required CSS
 
 // Images
-import games from './Images/kittenGames.jpg';
-import litter from './Images/kittenServices.png';
-import food from './Images/kittenFood.png';
-import clothes from './Images/kittenClothes.jpg';
+import games from "./Images/kittenGames.jpg";
+import litter from "./Images/kittenServices.png";
+import food from "./Images/kittenFood.png";
+import clothes from "./Images/kittenClothes.jpg";
 
 const Slider = () => {
-  console.log('Inside Slider');
+  console.log("Inside Slider");
   return (
     <Carousel
       showArrows
@@ -37,4 +37,3 @@ const Slider = () => {
 };
 
 export default Slider;
-

@@ -2,12 +2,15 @@ import Swal from "sweetalert";
 import React, { useState, useEffect } from "react";
 import { firestore } from "./firebase/firebase";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthProvider";
 
 export const Register = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [dateRegistred, setDateRegistred] = useState("");
+  const [setError] = useState("");
+  const { register } = useAuth();
 
   const navigate = useNavigate();
 
@@ -31,7 +34,15 @@ export const Register = (props) => {
   }, []);
 
   const handleSubmit = async (e) => {
+    let registeredUser;
     e.preventDefault();
+    try {
+      registeredUser = await register(email, password);
+    } catch (error) {
+      setError(error.message);
+    }
+
+    console.log("Registered user ID:", registeredUser.uid);
 
     // Validate the input fields
     const nameRegex = /^[a-zA-Z]+(?:\s[a-zA-Z]+)?$/;
@@ -65,6 +76,7 @@ export const Register = (props) => {
     console.log(
       "FROM Register: User registered successfully into Firestore database!"
     );
+
     navigate("/login");
   };
 
